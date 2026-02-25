@@ -12,10 +12,10 @@ export class QuizController {
     }
 
     @Post("/create")
-    @UsePipes(ValidationPipe)
+    @UsePipes(new ValidationPipe({ whitelist: true }))
     @HttpCode(200)
-    createQuiz(@Body() quizData: CreateQuizDto) { 
-        return { data: quizData }
+    createQuiz(@Body() quizData: CreateQuizDto) {
+        return this.quizService.createQuiz(quizData);
     }
     // @Get(":id")
     // getQuiz(@Param('id', ParseIntPipe) id: number) {
