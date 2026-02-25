@@ -6,6 +6,6 @@ export class CreateQuizDto {
     title: string;
 
     @IsNotEmpty({ message: "The Quiz should have a Description" })
-    @Length(3, 255)
+    @Length(3, 200)
     description: string;
 }
